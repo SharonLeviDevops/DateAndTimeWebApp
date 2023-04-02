@@ -27,7 +27,7 @@ cd DateAndTimeWebApp
 
 ```
 docker build -t dtapp .
-docker run -p 8080:8080 dtapp
+docker run -d -p 8080:8080 dtapp
 ```
 4. Build and run nginx config file using docker:
 
