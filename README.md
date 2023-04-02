@@ -34,7 +34,7 @@ docker run -d -p 8080:8080 dtapp
 ```
 docker build -t nginx .
 docker run -p 80:80 -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf nginx
-docker run -d -p 80:80 -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf --name nginx my-nginx
+docker run -d -p 80:80 -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf --name nginx nginx
 ```
 
 6. Access the server by opening a web browser and navigating to http://localhost/hello.
