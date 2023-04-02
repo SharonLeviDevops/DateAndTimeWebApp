@@ -17,18 +17,20 @@ To use the TCP server, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Navigate to the project directory.
-3. Run the Docker build command to create an image:
+3. Build and run the python app container. Here are the commands:
 
 ```
-# Build the image and set the image name to dtapp 
+# Build the python image and set the image name to dtapp 
 docker build -t dtapp .
 # Run the dtapp image and use port 8080 for the host and expose to port 8080 to the client
 docker run -p 8080:8080 dtapp
 ```
-4. Start the nginx config file using docker:
+4. Build and run nginx config file using docker:
 
 ```
+docker build -t nginx .
 docker run -p 80:80 -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf nginx
+docker run -d -p 80:80 -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf --name nginx my-nginx
 ```
 
 6. Access the server by opening a web browser and navigating to http://localhost/hello.
