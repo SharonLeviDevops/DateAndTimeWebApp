@@ -24,19 +24,14 @@ git clone https://github.com/SharonLeviDevops/DateAndTimeWebApp.git
 cd DateAndTimeWebApp
 ```
 3. Build and run the python app container. Here are the commands:
-
 ```
 docker build -t dtapp .
-docker run -d -p 8081:8081 dtapp
+docker run -d -p 8082:8082 dtapp
 ```
-4. Build and run nginx config file using docker:
-
+4. Run nginx container(pull nginx image) and copy config file to the nginx dir inside the container:
 ```
-docker build -t nginx .
-docker run -p 80:80 -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf nginx
 docker run -d -p 80:80 -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf nginx
 ```
-
 6. Access the server by opening a web browser and navigating to http://localhost/hello.
 
 Conclusion
