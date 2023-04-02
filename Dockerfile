@@ -4,12 +4,12 @@ FROM python:3.9-slim-buster
 # Install necessary packages
 RUN apt-get update && \
     apt-get install -y nginx
+    
+# Set the working directory to /app
+WORKDIR /app
 
 # Copy the content of the directory to the Docker container, inside app directory
 COPY . /app
-
-# Set the working directory to /app
-WORKDIR /app
 
 # Install the required Python packages
 RUN pip install -r requirements.txt
