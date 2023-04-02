@@ -14,7 +14,7 @@ def get_template_data():
 # A function to serve the template file over a TCP socket
 def serve():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Create a TCP socket
-    s.bind(('localhost', 8081))  # Bind the socket to localhost:8081
+    s.bind(('localhost', 8082))  # Bind the socket to localhost:8081
     s.listen(1)  # Listen for incoming connections
     while True:  # Keep the server running indefinitely
         conn, addr = s.accept()  # Accept incoming connection
