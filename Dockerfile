@@ -18,4 +18,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 
 # Start Nginx and the Python app
-CMD service nginx start && python app.py
+
+CMD ["sh", "-c", "service nginx start && python app.py"]
