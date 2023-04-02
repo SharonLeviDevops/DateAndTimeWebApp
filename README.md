@@ -16,7 +16,13 @@ Usage
 To use the TCP server, follow these steps:
 
 1. Clone the repository to your local machine.
+```
+git clone https://github.com/SharonLeviDevops/DateAndTimeWebApp.git
+```
 2. Navigate to the project directory.
+```
+cd DateAndTimeWebApp
+```
 3. Build and run the python app container. Here are the commands:
 
 ```
