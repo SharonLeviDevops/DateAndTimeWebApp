@@ -1,22 +1,8 @@
-# Use official Python image based on slim-buster version of Debian
-FROM python:3.9-slim-buster
+FROM python:3
 
-# Install necessary packages
-RUN apt-get update && \
-    apt-get install -y nginx
-    
-# Set the working directory to /app
+COPY . /app
 WORKDIR /app
 
-# Copy the content of the directory to the Docker container, inside app directory
-COPY . /app
+EXPOSE 8082
 
-# Copy the nginx.conf file to the container
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# Expose port 80 for Nginx
-EXPOSE 80
-
-# Start Nginx and the Python app
-
-CMD ["sh", "-c", "service nginx start && python app.py"]
+CMD ["python", "app.py"]
