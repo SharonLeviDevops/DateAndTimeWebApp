@@ -19,14 +19,16 @@ To use the TCP server, follow these steps:
 2. Navigate to the project directory.
 3. Create a template.txt file with the following contents:
 
+```
 Today is [DAY_OF_WEEK] The current date is [CURRENT_DATE]
-
+```
 
 4. Run the Docker build command to create an image.
 5. Start the Docker container using the following command:
 
+```
 docker run -p 80:80/tcp -p 8080:8080/tcp tcp-server
-
+```
 
 6. Access the server by opening a web browser and navigating to http://localhost/hello.
 
