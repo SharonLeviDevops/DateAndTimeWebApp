@@ -41,6 +41,8 @@ docker run -d --name my-python-app --network my-network my-python-app-image
 docker run -d --name my-nginx-server --network my-network -p 80:80 my-nginx-server-image
 ```
 7. Access the server by opening a web browser and navigating to http://localhost/hello.
+## final result pic:
+![image](https://user-images.githubusercontent.com/106589153/229478771-26a52cfd-c54f-43f9-a562-9540f78a0f7f.png)
 
 Conclusion
 ----------
