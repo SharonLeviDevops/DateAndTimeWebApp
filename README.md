@@ -9,7 +9,7 @@ The purpose of this project is to demonstrate how to create a TCP server that se
 
 Requirements
 ------------
-To run this project, you will need to have Docker and Nginx installed on your machine. You will also need to have basic knowledge of how to use the command line to navigate directories and run commands.
+To run this project, you will need to have Docker and git installed on your machine. You will also need to have basic knowledge of how to use the command line to navigate directories and run commands.
 
 Usage
 -----
