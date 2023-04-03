@@ -23,16 +23,24 @@ git clone https://github.com/SharonLeviDevops/DateAndTimeWebApp.git
 ```
 cd DateAndTimeWebApp
 ```
-3. Build and run the python app container. Here are the commands:
+3. Create Docker network in order to link the two containers togheter for communicating with each other.
 ```
-docker build -t dtapp .
-docker run -d -p 8082:8082 dtapp
+docker network create my-network
 ```
-4. Run nginx container(pull nginx image) and copy config file to the nginx dir inside the container:
+4. Create nginx image from nginx dockerfile:
 ```
-docker run -d -p 80:80 -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf nginx
+docker build -t my-nginx-image -f nginx.dockerfile .
 ```
-6. Access the server by opening a web browser and navigating to http://localhost/hello.
+5. Create python app image from a dockerfile:
+```
+docker build -t my-python-app-image .
+```
+6. Then, when you run the Python app container and the Nginx container, you can use the --network option to attach them to the my-network network:
+```
+docker run -d --name my-python-app --network my-network my-python-app-image
+docker run -d --name my-nginx-server --network my-network -p 80:80 my-nginx-server-image
+```
+7. Access the server by opening a web browser and navigating to http://localhost/hello.
 
 Conclusion
 ----------
