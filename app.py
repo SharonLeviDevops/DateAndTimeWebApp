@@ -1,5 +1,7 @@
 import datetime
-import socket
+from flask import Flask
+
+app = Flask(__name__)
 
 # A function to read the template file and replace placeholders with actual values
 def get_template_data():
@@ -7,21 +9,15 @@ def get_template_data():
         data = f.read()  # Read the template file
     today = datetime.datetime.today()  # Get the current date and time
     day_of_week = today.strftime('%A')  # Get the current day of the week
-    current_date = today.strftime('%m.%d.%Y')  # Get the current date
+    current_date = today.strftime('%d.%m.%Y')  # Get the current date
     data = data.replace('[DAY_OF_WEEK]', day_of_week).replace('[CURRENT_DATE]', current_date)  # Replace placeholders with actual values
     return data
 
-# A function to serve the template file over a TCP socket
+# A route to serve the template file
+@app.route('/hello')
 def serve():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Create a TCP socket
-    s.bind(('localhost', 8082))  # Bind the socket to localhost:8081
-    s.listen(1)  # Listen for incoming connections
-    while True:  # Keep the server running indefinitely
-        conn, addr = s.accept()  # Accept incoming connection
-        with conn:
-            print('Connected by', addr)  # Print the client's address
-            data = get_template_data()  # Get the template data with actual values
-            conn.sendall(data.encode())  # Send the template data to the client
+    data = get_template_data()  # Get the template data with actual values
+    return data
 
 if __name__ == '__main__':
-    serve()  # Start the server
+    app.run(debug=True, host='0.0.0.0', port=8082)  # Start the server
